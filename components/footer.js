@@ -1,8 +1,8 @@
 const Footer = () => {
   return (
     <footer className="bg-gray-300 w-full pb-1">
-      <div className="px-40 pt-10">
-        <div className="flex justify-evenly mb-10">
+      <div className="px-28 pt-10">
+        <div className="flex justify-evenly mb-10 gap-10">
           <div className="flex-grow w-1/3">
             <h1 className="text-4xl tracking-wide font-extrabold leading-5">
               <span className="text-logFirst">Jam</span>
@@ -51,11 +51,11 @@ const Footer = () => {
 
           <div className="flex-grow">
             <h1 className="text-2xl font-semibold mb-4">
-              Partner Organisations
+              Credits
             </h1>
             <ul className="list-disc opacity-80 ml-4">
-              <li>Namgay Fund corporation</li>
-              <li>Tenzin Charity</li>
+              <li>Illustration Image by <a href="https://pixabay.com/users/mohamed_hassan-5229782/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=5691153">mohamed Hassan</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=5691153">Pixabay</a></li>
+              <li>Illustration Image by <a href="https://undraw.co/illustrations">Undraw</a></li>
             </ul>
           </div>
         </div>
