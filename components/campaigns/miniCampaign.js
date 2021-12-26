@@ -1,5 +1,5 @@
-import CampaignButton from "../components/campaignButton";
-import CampaignCard from "../components/campaignCard"
+import CampaignButton from "./campaignButton";
+import CampaignCard from "./campaignCard"
 
 const MiniCampaign = () => {
   return (

@@ -1,4 +1,4 @@
-import MiniCampaign from "../components/miniCampaign";
+import MiniCampaign from "../components/campaigns/miniCampaign";
 import Question from "../components/question";
 import Story from "../components/story";
 import Wrapper from "../components/wrapper";

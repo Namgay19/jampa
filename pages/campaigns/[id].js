@@ -1,6 +1,6 @@
 import Wrapper from "../../components/wrapper";
-import CampaignTop from "../../components/campaignTop";
-import MiniDonation from "../../components/miniDonation";
+import CampaignTop from "../../components/campaigns/campaignTop";
+import MiniDonation from "../../components/donations/miniDonation";
 import ApplicantDetails from "../../components/applicantDetails";
 
 const Campaign = () => {

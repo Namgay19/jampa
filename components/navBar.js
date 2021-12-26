@@ -5,9 +5,9 @@ const NavBar = () => {
 
   const router = useRouter();
   
-  const underlineClass = "underline decoration-4 decoration-slate-500 underline-offset-8";
-  const homeUnderline = router.pathname === "/" ? underlineClass : undefined;
-  const campaignUnderline = router.pathname === "/campaigns" ? underlineClass : undefined;
+  const underlineClass = "underline decoration-4 decoration-slate-500 underline-offset-8 hover:bg-gray-200 px-2 rounded-lg";
+  const homeUnderline = router.pathname === "/" ? underlineClass : "hover:bg-gray-200 px-2 rounded-lg";
+  const campaignUnderline = router.pathname === "/campaigns" ? underlineClass : "hover:bg-gray-200 px-2 rounded-lg";
 
   return (
     <header className="bg-primary w-full pb-6">

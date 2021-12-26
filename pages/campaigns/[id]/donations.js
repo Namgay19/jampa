@@ -1,6 +1,6 @@
-import DonationList from "../../../components/donationList";
+import DonationList from "../../../components/donations/donationList";
 import Wrapper from "../../../components/wrapper";
-import MainCampaign from "../../../components/mainCampaign";
+import MainCampaign from "../../../components/campaigns/mainCampaign";
 
 const Donations = () => {
   return (

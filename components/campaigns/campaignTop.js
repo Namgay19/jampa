@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import Amount from "../components/amount";
+import Amount from "../amount";
 
 const CampaignTop = () => {
   const router = useRouter();

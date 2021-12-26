@@ -1,5 +1,5 @@
-import CampaignHeader from "../../components/campaignHeader";
-import MainCampaign from "../../components/mainCampaign";
+import CampaignHeader from "../../components/campaigns/campaignHeader";
+import MainCampaign from "../../components/campaigns/mainCampaign";
 import Pagination from "../../components/pagination";
 import Wrapper from "../../components/wrapper";
 
