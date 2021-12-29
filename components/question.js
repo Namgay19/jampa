@@ -13,9 +13,9 @@ const Question = () => {
 
   return (
     <div className="bg-secondary w-full h-auto">
-      <div className="px-40 py-16">
-        <div className="flex justify-center pt-4">
-          <div>
+      <div className="lg:px-40 md:px-12 lg:py-16 md:py-10">
+        <div className="flex justify-center pt-2 gap-4">
+          <div className="w-1/2">
             <QuestionCard
               question="What is this site for?"
               answers={answers1}
@@ -25,7 +25,9 @@ const Question = () => {
               answers={answers2}
             ></QuestionCard>
           </div>
-          <img src="/man_answering.svg" alt="answer man image" width="500" />
+          <div className="w-1/2">
+          <img src="/man_answering.svg" alt="answer man image" />
+          </div>
         </div>
       </div>
     </div>

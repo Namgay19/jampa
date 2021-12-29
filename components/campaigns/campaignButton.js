@@ -6,7 +6,7 @@ const CampaignButton = (props) => {
 
   return (
     <Link href={redirectionLink}>
-      <button className="border-2 py-1 px-1 rounded-md bg-primary font-semibold flex ml-2">
+      <button className="border-2 py-1 px-1 rounded-md bg-primary font-semibold flex ml-2 lg:text-base md:text-base">
         {props.message}
         <svg
           aria-hidden="true"

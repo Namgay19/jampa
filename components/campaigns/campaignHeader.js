@@ -1,11 +1,11 @@
 const CampaignHeader = () => {
   return (
-    <div className="flex justify-between px-2 mb-2 bg-gray-100 py-4">
-      <div className="flex justify-start gap-20 px-2 opacity-80">
-        <button className="underline underline-offset-4 decoration-4 font-semibold hover:bg-white rounded-lg px-2 shadow-inner">
+    <div className="flex justify-between px-2 bg-gray-300 lg:pt-4 lg:pb-2 md:py-2">
+      <div className="flex justify-start gap-10 opacity-80 w-1/2">
+        <button className="font-semibold hover:bg-gray-200 w-3/12 rounded-lg px-2 pb-1 bg-white">
           Active
         </button>
-        <button className="font-semibold hover:bg-white rounded-lg px-2 shadow-inner">Completed</button>
+        <button className="font-semibold hover:bg-gray-200 w-3/12 rounded-lg px-2 pb-1">Completed</button>
       </div>
       <div className="p-1 w-1/3 rounded-lg border-2 border-gray-600 flex gap-2">
         <svg
@@ -32,7 +32,7 @@ const CampaignHeader = () => {
           placeholder="Search for campaigns"
           className="outline-none truncate"
           type="text"
-          className="bg-gray-100 w-full outline-none"
+          className="bg-gray-300 w-full outline-none"
         />
       </div>
     </div>

@@ -1,22 +1,22 @@
 import CampaignButton from "./campaignButton";
+import Image from "next/image";
 
 const MainCampaign = (props) => {
-  const parentStyling = `flex px-4 justify-start items-start gap-10 border-b-2 py-2 ${props.colour}`;
-
   return (
-    <div className={parentStyling}>
-      <img
-        src="/demoHealth.jpg"
-        alt="campaign image"
-        className="rounded-md w-1/3 h-2/3"
-      />
-      <div>
-        <h3 className="text-xl underline font-semibold mx-2">Pema's Surgery</h3>
-        <p className="mt-1 opacity-80 mx-2">
+    <div className="bg-primary lg:px-4 md:px-2 py-4 border-b-2">
+    <div className="grid grid-cols-12 grid-rows-12 lg:gap-5 md:gap-2 border-b-2 bg-secondary rounded-md">
+      <div className="rounded-l-md lg:col-span-4 md:col-span-5">
+        <img src="/demoHealth.jpg" alt="campaign image" className="rounded-l-md object-fill w-full lg:h-full md:h-full"/>
+      </div>
+      <div className="lg:col-span-8 md:col-span-7 py-2">
+        <h3 className="lg:text-xl md:text-lg underline font-semibold lg:mx-2 md:mx-1 -mt-1">
+          Pema's Surgery
+        </h3>
+        <p className="lg:mt-1 md:mt-0 opacity-80 lg:mx-2 md:mx-1 lg:text-base md:text-sm">
           Pema needs funding to go to Bangkok for surgery. She has been
           diagnosed with cancer.
         </p>
-        <div className="flex justify-start gap-2 mx-2 mt-3 opacity-80">
+        <div className="flex justify-start gap-2 lg:mx-2 md:mx-1 lg:mt-3 md:mt-2 opacity-80 lg:text-base md:text-sm">
           <svg
             aria-hidden="true"
             focusable="false"
@@ -35,9 +35,9 @@ const MainCampaign = (props) => {
           </svg>
           3 days remaining
         </div>
-        <hr className="mb-4" />
+        <hr className="lg:mb-4 md:mb-3 bg-black" />
 
-        <div className="bg-primary p-2 flex justify-evenly rounded-lg w-11/12 mt-2 mx-2 mb-4">
+        <div className="bg-primary lg:py-2 md:py-0 flex justify-evenly rounded-lg w-11/12 lg:mx-2 md:mx-1 lg:mb-4 md:mb-3 lg:text-base md:text-sm">
           <div className="leading-8">
             <p>Amount needed</p>
             <p className="text-center">
@@ -57,6 +57,7 @@ const MainCampaign = (props) => {
           <CampaignButton message="Go to Campaign"></CampaignButton>
         </div>
       </div>
+    </div>
     </div>
   );
 };

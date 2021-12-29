@@ -3,11 +3,11 @@ import Footer from "./footer";
 
 const Wrapper = (props) => {
   return (
-    <>
+    <div>
       <NavBar />
       {props.children}
       <Footer />
-    </>
+    </div>
   );
 };
 

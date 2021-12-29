@@ -2,28 +2,34 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 const NavBar = () => {
-
   const router = useRouter();
-  
-  const underlineClass = "underline decoration-4 decoration-slate-500 underline-offset-8 hover:bg-gray-200 px-2 rounded-lg";
-  const homeUnderline = router.pathname === "/" ? underlineClass : "hover:bg-gray-200 px-2 rounded-lg";
-  const campaignUnderline = router.pathname === "/campaigns" ? underlineClass : "hover:bg-gray-200 px-2 rounded-lg";
+
+  const underlineClass =
+    "underline decoration-4 decoration-slate-500 underline-offset-8 hover:bg-gray-200 px-2 rounded-lg pt-2";
+  const homeUnderline =
+    router.pathname === "/"
+      ? underlineClass
+      : "hover:bg-gray-200 px-2 rounded-lg pt-2";
+  const campaignUnderline =
+    router.pathname === "/campaigns"
+      ? underlineClass
+      : "hover:bg-gray-200 px-2 rounded-lg pt-2";
 
   return (
-    <header className="bg-primary w-full pb-6">
-      <div className="px-28 flex justify-between pt-8">
-        <h1 className="text-4xl tracking-wide font-extrabold leading-5">
+    <header className="bg-primary w-full">
+      <div className="lg:px-28 md:px-10 sm:px-2 py-2 flex justify-between">
+        <h1 className="lg:text-4xl md:text-4xl tracking-wide font-extrabold py-2">
           <span className="text-logFirst">Jam</span>
           <span className="text-logSecond">pa</span>
         </h1>
-        <nav className="flex gap-20 font-semibold">
+        <div className="flex lg:gap-20 md:gap-10 sm:gap-2 font-semibold text-base py-2">
           <div className={homeUnderline}>
             <Link href="/">Home</Link>
           </div>
           <div className={campaignUnderline}>
             <Link href="/campaigns">Campaigns</Link>
           </div>
-          <button className="border-2 flex flex-wrap p-1 rounded-md font-semibold bg-gray-200 -mt-2">
+          <button className="border-2 flex flex-wrap p-1 rounded-md font-semibold bg-gray-200">
             SignUp/Login
             <svg
               aria-hidden="true"
@@ -43,7 +49,7 @@ const NavBar = () => {
               ></path>
             </svg>
           </button>
-        </nav>
+        </div>
       </div>
     </header>
   );

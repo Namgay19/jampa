@@ -6,15 +6,13 @@ import Wrapper from "../../components/wrapper";
 const Campaigns = () => {
   return (
     <Wrapper>
-      <div className="px-40 py-10">
-        <h1 className="text-3xl font-semibold">Campaigns</h1>
+      <div className="lg:px-40 md:px-12 lg:py-10 md:py-5">
+        <h1 className="lg:text-3xl md:text-2xl font-semibold">Campaigns</h1>
         <svg
-          width="160"
-          height="20"
           viewBox="0 0 329 20"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="-mt-2"
+          className="md:w-32 lg:w-40 lg:mb-4 md:mb-2"
         >
           <path
             d="M3 16.3353C3 -4.86466 209.667 2.33531 328 16.3353"
@@ -23,13 +21,13 @@ const Campaigns = () => {
           />
         </svg>
 
-        <div className="pb-4 border-2 shadow overflow-hidden sm:rounded-lg">
+        <div className="lg:pb-4 md:pb-2 border-2 shadow overflow-hidden sm:rounded-lg">
           <CampaignHeader />
-          <MainCampaign colour="bg-secondary" />
-          <MainCampaign colour="bg-secondary" />
-          <MainCampaign colour="bg-secondary" />
-          <MainCampaign colour="bg-secondary" />
-          <MainCampaign colour="bg-secondary"/>
+          <MainCampaign />
+          <MainCampaign />
+          <MainCampaign />
+          <MainCampaign />
+          <MainCampaign />
           <Pagination />
         </div>
       </div>

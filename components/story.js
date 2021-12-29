@@ -1,8 +1,8 @@
 const Story = () => {
   return (
-    <div className="bg-primary py-16 w-full h-128">
-      <div className="px-40">
-        <div className="flex justify-evenly items-center py-2">
+    <div className="bg-primary lg:py-16 md:py-12 w-full">
+      <div className="lg:px-40 md:px-12">
+        <div className="flex justify-evenly items-center">
           <svg
             aria-hidden="true"
             focusable="false"
@@ -20,7 +20,7 @@ const Story = () => {
               d="M34.52 239.03L228.87 44.69c9.37-9.37 24.57-9.37 33.94 0l22.67 22.67c9.36 9.36 9.37 24.52.04 33.9L131.49 256l154.02 154.75c9.34 9.38 9.32 24.54-.04 33.9l-22.67 22.67c-9.37 9.37-24.57 9.37-33.94 0L34.52 272.97c-9.37-9.37-9.37-24.57 0-33.94z"
             ></path>
           </svg>
-          <div className="flex justify-center px-20 mx-16 h-96 rounded-3xl">
+          <div className="flex justify-center lg:px-20 md:px-6 lg:mx-16 md:mx-4 lg:h-96 md:h-64 rounded-3xl">
             <div>
               <img
                 src="/demoHealth.jpg"
@@ -28,16 +28,16 @@ const Story = () => {
                 className="rounded-lg object-none h-full w-11/12"
               />
             </div>
-            <div className="px-2 rounded-3xl"> 
-              <h1 className="text-2xl font-bold text-gray-400 mt-12 mb-2">
+            <div className="px-2 rounded-3xl lg:text-base"> 
+              <h1 className="lg:text-2xl md:text-xl font-bold text-gray-400 lg:mt-12 md:mt-4 mb-2">
                 Success Stories
               </h1>
               <blockquote>
                 "I want to thank everyone who donated for my cause."
               </blockquote>
               <cite>John Cena</cite>
-              <hr className="mt-10"/>
-              <p className="opacity-50 mt-10">
+              <hr className="lg:mt-10 md:mt-6"/>
+              <p className="opacity-50 lg:mt-10 md:mt-6 lg:text-base md:text-sm">
                 John was diagnosed with a certain disease, and needed financial
                 assitance to undergo his treatment.
               </p>

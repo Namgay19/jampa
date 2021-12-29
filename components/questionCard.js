@@ -1,7 +1,7 @@
 const QuestionCard = props => {
   return (
-    <div className="bg-secondary h-auto px-8 py-4 rounded-lg mb-2">
-      <h4 className="text-xl font-semibold">{props.question}</h4>
+    <div className="bg-secondary h-auto lg:px-8 md:px-2 lg:py-4 md:py-1 rounded-lg lg:mb-2 md:mb-1">
+      <h4 className="lg:text-xl md:text-lg font-semibold">{props.question}</h4>
       <svg
         width="200"
         height="20"
@@ -16,7 +16,7 @@ const QuestionCard = props => {
           strokeWidth="6"
         />
       </svg>
-      <ul className="opacity-80 list-disc mt-2 ml-4">
+      <ul className="opacity-80 list-disc lg:mt-2 md:mt-0 ml-4 lg:text-base md:text-sm">
         {props.answers.map(answer =>(<li key={Math.floor(Math.random() * 100)}> {answer}</li>))}
       </ul>
     </div>

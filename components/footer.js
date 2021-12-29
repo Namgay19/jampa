@@ -1,22 +1,24 @@
 const Footer = () => {
   return (
     <footer className="bg-gray-300 w-full pb-1">
-      <div className="px-28 pt-10">
-        <div className="flex justify-evenly mb-10 gap-10">
+      <div className="lg:px-28 md:px-10 lg:pt-10 md:pt-6">
+        <div className="flex justify-evenly mb-10 lg:gap-10 md:gap-5">
           <div className="flex-grow w-1/3">
             <h1 className="text-4xl tracking-wide font-extrabold leading-5">
               <span className="text-logFirst">Jam</span>
               <span className="text-logSecond">pa</span>
             </h1>
-            <p className="opacity-50 mt-4">
+            <p className="opacity-50 mt-4 lg:text-base md:text-sm">
               A non profit crowdfunding platform to allow financially challenged
               people to campaign for donations for medical needs.
             </p>
           </div>
 
-          <div className="flex-grow">
-            <h1 className="text-2xl font-semibold mb-4">Developer Contact</h1>
-            <div className="flex gap-2 opacity-80 mb-4">
+          <div className="flex-grow w-1/3">
+            <h1 className="lg:text-2xl md:text-xl font-semibold lg:mb-4 md:mb-3">
+              Developer Contact
+            </h1>
+            <div className="flex gap-2 opacity-80 lg:mb-4 md:mb-2 lg:text-base md:text-sm">
               <svg
                 width="20"
                 height="20"
@@ -32,7 +34,7 @@ const Footer = () => {
               +97517617564
             </div>
 
-            <div className="flex gap-2 opacity-80 mb-4">
+            <div className="flex gap-2 opacity-80 lg:mb-4 md:mb-2 lg:text-base md:text-sm">
               <svg
                 width="20"
                 height="20"
@@ -47,15 +49,49 @@ const Footer = () => {
               </svg>
               namgayt8@gmail.com
             </div>
+            <div className="flex gap-2 opacity-80 lg:mb-4 md:mb-2 lg:text-base md:text-sm">
+              <svg
+                aria-hidden="true"
+                focusable="false"
+                data-prefix="fas"
+                data-icon="globe"
+                role="img"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 496 512"
+                width="20"
+                height="20"
+              >
+                <path
+                  fill="black"
+                  d="M336.5 160C322 70.7 287.8 8 248 8s-74 62.7-88.5 152h177zM152 256c0 22.2 1.2 43.5 3.3 64h185.3c2.1-20.5 3.3-41.8 3.3-64s-1.2-43.5-3.3-64H155.3c-2.1 20.5-3.3 41.8-3.3 64zm324.7-96c-28.6-67.9-86.5-120.4-158-141.6 24.4 33.8 41.2 84.7 50 141.6h108zM177.2 18.4C105.8 39.6 47.8 92.1 19.3 160h108c8.7-56.9 25.5-107.8 49.9-141.6zM487.4 192H372.7c2.1 21 3.3 42.5 3.3 64s-1.2 43-3.3 64h114.6c5.5-20.5 8.6-41.8 8.6-64s-3.1-43.5-8.5-64zM120 256c0-21.5 1.2-43 3.3-64H8.6C3.2 212.5 0 233.8 0 256s3.2 43.5 8.6 64h114.6c-2-21-3.2-42.5-3.2-64zm39.5 96c14.5 89.3 48.7 152 88.5 152s74-62.7 88.5-152h-177zm159.3 141.6c71.4-21.2 129.4-73.7 158-141.6h-108c-8.8 56.9-25.6 107.8-50 141.6zM19.3 352c28.6 67.9 86.5 120.4 158 141.6-24.4-33.8-41.2-84.7-50-141.6h-108z"
+                ></path>
+              </svg>
+              <a href="https://namgaytenzin.com">https://namgaytenzin.com</a>
+            </div>
           </div>
 
-          <div className="flex-grow">
-            <h1 className="text-2xl font-semibold mb-4">
+          <div className="flex-grow w-1/3">
+            <h1 className="lg:text-2xl md:text-xl font-semibold lg:mb-4 md:mb-3">
               Credits
             </h1>
-            <ul className="list-disc opacity-80 ml-4">
-              <li>Illustration Image by <a href="https://pixabay.com/users/mohamed_hassan-5229782/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=5691153">mohamed Hassan</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=5691153">Pixabay</a></li>
-              <li>Illustration Image by <a href="https://undraw.co/illustrations">Undraw</a></li>
+            <ul className="list-disc opacity-80 ml-4 lg:text-base md:text-sm">
+              <li>
+                Illustration Image by{" "}
+                <a href="https://pixabay.com/users/mohamed_hassan-5229782/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=5691153">
+                  mohamed Hassan
+                </a>{" "}
+                from{" "}
+                <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=5691153">
+                  Pixabay
+                </a>
+              </li>
+              <li>
+                Illustration Image from
+                <a href="https://undraw.co/illustrations">Undraw</a>
+              </li>
+              <li>
+                Icons from <a href="https://fontawesome.com">FontAwesome</a>
+              </li>
             </ul>
           </div>
         </div>
