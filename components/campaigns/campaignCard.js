@@ -2,16 +2,16 @@ import CampaignButton from "./campaignButton";
 
 const CampaignCard = () => {
   return (
-    <div className="shadow overflow-hidden sm:rounded-lg pb-2">
-      <img src="/demoHealth.jpg" alt="campaign image" className="rounded-md" />
-      <h3 className="lg:text-xl md:text-lg lg:mt-6 md:mt-3 underline font-semibold mx-2">
+    <div className="shadow overflow-hidden mx-2 md:mx-0 rounded-lg pb-2 bg-white">
+      <img src="/demoHealth.jpg" alt="campaign image" className="rounded-none md:rounded-t-md" />
+      <h3 className="text-lg mt-2 lg:text-xl md:text-lg lg:mt-4 md:mt-3 underline font-semibold mx-2">
         Pema's Surgery
       </h3>
-      <p className="lg:mt-2 md:mt-0 lg:text-base md:text-sm opacity-80 mx-2">
+      <p className="text-sm lg:mt-2 md:mt-0 lg:text-base md:text-sm opacity-80 mx-2">
         Pema needs funding to go to Bangkok for surgery. She has been diagnosed
         with cancer.
       </p>
-      <div className="flex justify-start gap-2 mx-2 lg:mt-4 md:mt-3 lg:text-base md:text-sm opacity-50">
+      <div className="flex justify-start gap-2 mx-2 mt-2 text-sm lg:mt-4 md:mt-3 lg:text-base md:text-sm opacity-50">
         <svg
           aria-hidden="true"
           focusable="false"
@@ -31,18 +31,18 @@ const CampaignCard = () => {
         3 days till campaign ends
       </div>
 
-      <hr className="lg:mb-6 md:mb-3" />
+      <hr className="mb-2 lg:mb-6 md:mb-3" />
 
-      <div className="bg-primary p-2 flex justify-evenly rounded-lg w-11/12 lg:my-4 md:my-2 mx-2">
-        <div className="leading-8">
-          <p>Amount needed</p>
+      <div className="bg-primary p-2 flex justify-evenly rounded-lg w-11/12 my-2 lg:my-4 md:my-2 mx-2">
+        <div className="leading-6 md:leading-8">
+          <p className="text-sm">Amount needed</p>
           <p className="text-center">
             <span className="opacity-80">Nu.</span>
             <span className="font-semibold">100,000</span>
           </p>
         </div>
-        <div className="leading-8">
-          <p>Amount raised</p>
+        <div className="leading-6 md:leading-8">
+          <p className="text-sm">Amount raised</p>
           <p className="text-center">
             <span className="opacity-80">Nu.</span>
             <span className="font-semibold">100,000</span>

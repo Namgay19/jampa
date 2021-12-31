@@ -6,12 +6,12 @@ import ApplicantDetails from "../../components/applicantDetails";
 const Campaign = () => {
   return (
     <Wrapper>
-      <div className="px-40 mt-4 mb-20">
-        <h1 className="text-3xl font-semibold">Someones surgery</h1>
+      <div className="px-2 lg:px-40 md:px-10 mt-4 mb-5 lg:mb-20 md:mb-10">
+        <h1 className="text-xl lg:text-3xl md:text-2xl font-semibold">Someones surgery</h1>
         <CampaignTop />
-        <div className="p-4 flex gap-10">
-          <div className="w-2/3">
-            <h2 className="text-xl opacity-50 font-bold my-4">
+        <div className="lg:p-4 md:p-2 lg:flex gap-10">
+          <div className="lg:w-2/3">
+            <h2 className="text-xl opacity-50 font-bold my-2 md:my-4">
               Needs funding to go Thailand for surgery
             </h2>
             <p className="mb-4">
@@ -40,7 +40,7 @@ const Campaign = () => {
             <ApplicantDetails />
           </div>
 
-          <div className="w-1/3 h-96">
+          <div className="lg:w-1/3 h-auto my-4">
             <MiniDonation />
           </div>
         </div>

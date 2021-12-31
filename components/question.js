@@ -13,9 +13,10 @@ const Question = () => {
 
   return (
     <div className="bg-secondary w-full h-auto">
-      <div className="lg:px-40 md:px-12 lg:py-16 md:py-10">
-        <div className="flex justify-center pt-2 gap-4">
-          <div className="w-1/2">
+      <div className="px-2 lg:px-40 md:px-12 py-4 lg:py-12 md:py-6">
+        <h1 className="text-center text-xl md:text-2xl font-semibold underline decoration-dashed decoration-2">FAQ</h1>
+        <div className="flex justify-center pt-2 md:gap-4 gap-2">
+          <div className="w-2/3">
             <QuestionCard
               question="What is this site for?"
               answers={answers1}
@@ -25,8 +26,12 @@ const Question = () => {
               answers={answers2}
             ></QuestionCard>
           </div>
-          <div className="w-1/2">
-          <img src="/man_answering.svg" alt="answer man image" />
+          <div className="w-1/3">
+            <img
+              src="/man_answering.svg"
+              alt="answer man image"
+              className="h-full"
+            />
           </div>
         </div>
       </div>

@@ -5,10 +5,10 @@ import MainCampaign from "../../../components/campaigns/mainCampaign";
 const Donations = () => {
   return (
     <Wrapper>
-      <div className="px-40 mt-4 py-4">
-        <MainCampaign />
-        <hr className="mt-10"/>
-        <h1 className="text-3xl font-semibold mb-4 mt-8">Donation History</h1>
+      <div className="px-2 lg:px-40 md:px-12 mt-2 md:mt-4 py-2 md:py-4 mb-8 md:mb-0 ">
+        <MainCampaign borderStyle="rounded-lg"/>
+        <hr className="mt-5 md:mt-10"/>
+        <h1 className="px-2 md:px-0 text-xl md:text-3xl font-semibold mb-4 mt-4 md:mt-8">Donation History</h1>
         <div className="flex gap-10">
           <div className="mb-4 ml-2">
             <input id="recent" type="radio" value="Recent donations" name="order" className=""/>

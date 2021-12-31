@@ -6,16 +6,16 @@ const CampaignTop = () => {
   const router = useRouter();
 
   return (
-    <div className="flex start gap-10 p-4 mt-2">
+    <div className="md:flex lg:gap-10 md:gap-5 lg:p-4 md:p-2 mt-2">
       <img
         src="/demoHealth.jpg"
         alt="campaign image"
-        className="w-2/3 rounded-lg"
+        className="lg:w-2/3 md:w-1/2 lg:h-full md:h-80 rounded-lg"
       />
-      <div className="mt-6">
+      <div className="mt-2 lg:mt-6 md:mt-0">
         <Amount />
 
-        <div className="flex justify-start gap-2 mx-2 mt-8 opacity-80">
+        <div className="text-sm md:text-base flex justify-start gap-2 mx-2 lg:mt-8 mt-3 opacity-80">
           <svg
             aria-hidden="true"
             focusable="false"
@@ -35,9 +35,9 @@ const CampaignTop = () => {
           3 days till the end of the campaign
         </div>
 
-        <hr className="mb-6" />
+        <hr className="lg:mb-6 mb-3" />
 
-        <div className="flex justify-start gap-4 mb-6">
+        <div className="text-sm md:text-base flex justify-start gap-4 lg:mb-6 md:mb-3">
           <svg
             aria-hidden="true"
             focusable="false"
@@ -57,7 +57,7 @@ const CampaignTop = () => {
           <p>4000 people have donated</p>
         </div>
 
-        <div className="flex justify-start gap-4 mb-6">
+        <div className="text-sm md:text-base flex justify-start gap-4 lg:mb-6 md:mb-1">
           <svg
             aria-hidden="true"
             focusable="false"
@@ -77,9 +77,9 @@ const CampaignTop = () => {
           <p>Campaign created by Mr. John Cena</p>
         </div>
 
-        <hr className="mb-6" />
+        <hr className="lg:mb-6 mb-3" />
 
-        <button className="flex justify-center gap-2 mb-4 border-2 w-full py-2 font-bold text-xl rounded-lg bg-sky-400">
+        <button className="flex justify-center gap-2 lg:mb-4 md:mb-2 border-2 w-full py-2 font-bold text-xl rounded-lg bg-sky-400">
           Share
           <svg
             aria-hidden="true"

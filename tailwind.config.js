@@ -12,7 +12,8 @@ module.exports = {
         'primary': '#F1F6FB',
         'secondary': '#FFFFFF',
         'logFirst': '#736969',
-        'logSecond': '#0A2835'
+        'logSecond': '#0A2835',
+        'footer': '#E6E6E6'
       },
       height: {
         '128': '32rem'

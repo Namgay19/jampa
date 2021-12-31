@@ -1,22 +1,21 @@
 import CampaignButton from "./campaignButton";
-import Image from "next/image";
 
 const MainCampaign = (props) => {
   return (
-    <div className="bg-primary lg:px-4 md:px-2 py-4 border-b-2">
-    <div className="grid grid-cols-12 grid-rows-12 lg:gap-5 md:gap-2 border-b-2 bg-secondary rounded-md">
-      <div className="rounded-l-md lg:col-span-4 md:col-span-5">
-        <img src="/demoHealth.jpg" alt="campaign image" className="rounded-l-md object-fill w-full lg:h-full md:h-full"/>
+    <div className={`bg-primary lg:px-4 md:px-2 md:py-4 md:border-b-2 ${props.borderStyle}`}>
+    <div className={`md:grid md:grid-cols-12 md:grid-rows-12 lg:gap-5 md:gap-2 md:border-b-2 bg-white md:rounded-md ${props.bottomBorder}`}>
+      <div className="md:rounded-l-md lg:col-span-4 md:col-span-5">
+        <img src="/demoHealth.jpg" alt="campaign image" className={`md:rounded-l-md object-fill w-full lg:h-full md:h-full ${props.borderStyle}`}/>
       </div>
-      <div className="lg:col-span-8 md:col-span-7 py-2">
-        <h3 className="lg:text-xl md:text-lg underline font-semibold lg:mx-2 md:mx-1 -mt-1">
+      <div className="lg:col-span-8 md:col-span-7 py-2 px-1 md:px-0">
+        <h3 className="lg:text-xl text-lg underline font-semibold lg:mx-2 md:mx-1 md:-mt-1">
           Pema's Surgery
         </h3>
-        <p className="lg:mt-1 md:mt-0 opacity-80 lg:mx-2 md:mx-1 lg:text-base md:text-sm">
+        <p className="lg:mt-1 mt-0 opacity-80 lg:mx-2 md:mx-1 lg:text-base text-sm">
           Pema needs funding to go to Bangkok for surgery. She has been
           diagnosed with cancer.
         </p>
-        <div className="flex justify-start gap-2 lg:mx-2 md:mx-1 lg:mt-3 md:mt-2 opacity-80 lg:text-base md:text-sm">
+        <div className="flex justify-start gap-2 lg:mx-2 md:mx-1 lg:mt-3 mt-2 opacity-80 lg:text-base text-sm">
           <svg
             aria-hidden="true"
             focusable="false"
@@ -35,25 +34,25 @@ const MainCampaign = (props) => {
           </svg>
           3 days remaining
         </div>
-        <hr className="lg:mb-4 md:mb-3 bg-black" />
+        <hr className="lg:mb-4 mb-3" />
 
-        <div className="bg-primary lg:py-2 md:py-0 flex justify-evenly rounded-lg w-11/12 lg:mx-2 md:mx-1 lg:mb-4 md:mb-3 lg:text-base md:text-sm">
-          <div className="leading-8">
+        <div className="bg-primary py-2 lg:py-2 md:py-0 flex justify-evenly rounded-lg w-11/12 mx-4 lg:mx-2 md:mx-1 lg:mb-4 mb-3 lg:text-base text-sm">
+          <div className="leading-6 md:leading-8">
             <p>Amount needed</p>
-            <p className="text-center">
+            <p className="text-center text-base">
               <span className="opacity-80">Nu.</span>{" "}
               <span className="font-semibold">100,000</span>
             </p>
           </div>
-          <div className="leading-8">
+          <div className="leading-6 md:leading-8">
             <p>Amount raised</p>
-            <p className="text-center">
+            <p className="text-center text-base">
               <span className="opacity-80">Nu.</span>{" "}
               <span className="font-semibold">100,000</span>
             </p>
           </div>
         </div>
-        <div className="flex justify-start">
+        <div className="hidden md:flex md:justify-start">
           <CampaignButton message="Go to Campaign"></CampaignButton>
         </div>
       </div>
