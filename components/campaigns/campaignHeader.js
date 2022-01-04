@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const CampaignHeader = () => {
   return (
     <div className="flex flex-col-reverse md:flex md:flex-row md:justify-between bg-gray-300 pt-1 pb-1 lg:pt-4 lg:pb-2 md:py-2 px-2 md:px-2">
@@ -5,7 +7,9 @@ const CampaignHeader = () => {
         <button className="font-semibold hover:bg-gray-200 w-full md:w-3/12 rounded-lg px-2 bg-white py-1 md:py-0 shadow-md">
           Active
         </button>
-        <button className="font-semibold hover:bg-gray-200 w-full md:w-4/12 rounded-lg px-2 py-1 md:py-0 shadow-md">Completed</button>
+        <button className="font-semibold hover:bg-gray-200 w-full md:w-4/12 rounded-lg px-2 py-1 md:py-0 shadow-md">
+          Completed
+        </button>
       </div>
       <div className="p-1 w-full md:w-1/3 rounded-lg border-2 border-gray-600 flex gap-2">
         <svg
@@ -34,6 +38,29 @@ const CampaignHeader = () => {
           type="text"
           className="bg-gray-300 w-full outline-none"
         />
+      </div>
+      <div className="p-1 w-full md:hidden rounded-lg border-2 border-gray-600 mb-2 shadow-md bg-gray-100 flex justify-center gap-2">
+        <button className="text-center font-semibold">Create a Campaign</button>
+        <Link href="/campaigns/create">
+          <button>
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              data-prefix="fas"
+              data-icon="plus"
+              role="img"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 448 512"
+              width="25"
+              height="25"
+            >
+              <path
+                fill="currentColor"
+                d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
+              ></path>
+            </svg>
+          </button>
+        </Link>
       </div>
     </div>
   );

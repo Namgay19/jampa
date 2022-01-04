@@ -16,17 +16,18 @@ const Question = () => {
       <div className="px-2 lg:px-40 md:px-12 py-4 lg:py-12 md:py-6">
         <h1 className="text-center text-xl md:text-2xl font-semibold underline decoration-dashed decoration-2">FAQ</h1>
         <div className="flex justify-center pt-2 md:gap-4 gap-2">
-          <div className="w-2/3">
+          <div className="w-9/12 md:w-6/12 lg:w-7/12">
             <QuestionCard
               question="What is this site for?"
               answers={answers1}
-            ></QuestionCard>
+            />
             <QuestionCard
               question="Do we make profits?"
               answers={answers2}
-            ></QuestionCard>
+            />
+            <QuestionCard question="Security Concerns?" answers={answers2}/>
           </div>
-          <div className="w-1/3">
+          <div className="w-3/12 md:w-6/12 lg:w-5/12">
             <img
               src="/man_answering.svg"
               alt="answer man image"

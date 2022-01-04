@@ -2,12 +2,45 @@ import Wrapper from "../../components/wrapper";
 import CampaignTop from "../../components/campaigns/campaignTop";
 import MiniDonation from "../../components/donations/miniDonation";
 import ApplicantDetails from "../../components/applicantDetails";
+import ModalContext from "../../store/modal-context";
+import { useContext } from "react/cjs/react.development";
+import Modal from "../../components/UI/modal";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 const Campaign = () => {
+  const modCtx = useContext(ModalContext);
+  const router = useRouter();
+
+  const modalDetails = (
+    <Modal
+      hasBackdrop={false}
+      alignMiddle={false}
+      hasButtons={false}
+      header="Campaign created successfully"
+      subHeader="Your campaign has been succesfully created. You can click on the edit campaign button to edit your campaign details."
+    />
+  );
+
+  
+
+  useEffect(() => {
+    const modalTimer = setTimeout(() => {
+      modCtx.setHideModal()
+    }, 2000);
+
+    return () => {
+      clearTimeout(modalTimer);
+    };
+  }, []);
+
   return (
     <Wrapper>
+      {modCtx.showModal && modalDetails}
       <div className="px-2 lg:px-40 md:px-10 mt-4 mb-5 lg:mb-20 md:mb-10">
-        <h1 className="text-xl lg:text-3xl md:text-2xl font-semibold">Someones surgery</h1>
+        <h1 className="text-xl lg:text-3xl md:text-2xl font-semibold">
+          Someones surgery
+        </h1>
         <CampaignTop />
         <div className="lg:p-4 md:p-2 lg:flex gap-10">
           <div className="lg:w-2/3">
