@@ -6,16 +6,40 @@ import Wrapper from "../components/wrapper";
 import Header from "../components/header";
 
 export default function Home() {
+  const stories = [
+    {
+      image: "/success_1.jpg",
+      header: "I want to thank everyone who donated for my cause.",
+      cite: "John Cena",
+      sub_header:
+        "John was diagnosed with a certain disease, and needed financial assitance to undergo his treatment.",
+    },
+    {
+      image: "/success_2.jpg",
+      header: "I want to thank everyone who donated for my cause.",
+      cite: "John Cena",
+      sub_header:
+        "John was diagnosed with a certain disease, and needed financial assitance to undergo his treatment.",
+    },
+    {
+      image: "/success_3.jpg",
+      header: "I want to thank everyone who donated for my cause.",
+      cite: "John Cena",
+      sub_header:
+        "John was diagnosed with a certain disease, and needed financial assitance to undergo his treatment.",
+    },
+  ];
+
   return (
     <div className="font-sans">
       <Wrapper>
         <Header></Header>
         <MiniCampaign></MiniCampaign>
         <div className="hidden md:block">
-          <Story />
+          <Story stories={stories}/>
         </div>
         <div className="block md:hidden">
-          <MiniStory />
+          <MiniStory stories={stories}/>
         </div>
         <Question></Question>
       </Wrapper>

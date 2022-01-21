@@ -1,13 +1,25 @@
 import Link from "next/link";
 
-const CampaignHeader = () => {
+const CampaignHeader = (props) => {
+  const activeHandler = () => {
+    props.onFilter("active")
+  }
+
+  const completedHandler = () => {
+    props.onFilter("completed")
+  }
+
+  const queryHandler = (event) => {
+    props.onQuery(event.target.value)
+  }
+  
   return (
     <div className="flex flex-col-reverse md:flex md:flex-row md:justify-between bg-gray-300 pt-1 pb-1 lg:pt-4 lg:pb-2 md:py-2 px-2 md:px-2">
       <div className="flex justify-start gap-5 md:gap-10 opacity-80 w-full md:w-1/2 mt-2 mb-1 md:mt-0 md:mb-0 ">
-        <button className="font-semibold hover:bg-gray-200 w-full md:w-3/12 rounded-lg px-2 bg-white py-1 md:py-0 shadow-md">
+        <button onClick={activeHandler} className="font-semibold hover:bg-gray-200 w-full md:w-3/12 rounded-lg px-2 bg-white py-1 md:py-0 shadow-md">
           Active
         </button>
-        <button className="font-semibold hover:bg-gray-200 w-full md:w-4/12 rounded-lg px-2 py-1 md:py-0 shadow-md">
+        <button onClick={completedHandler} className="font-semibold hover:bg-gray-200 w-full md:w-4/12 rounded-lg px-2 py-1 md:py-0 shadow-md">
           Completed
         </button>
       </div>
@@ -37,6 +49,7 @@ const CampaignHeader = () => {
           className="outline-none truncate"
           type="text"
           className="bg-gray-300 w-full outline-none"
+          onChange={queryHandler}
         />
       </div>
       <div className="p-1 w-full md:hidden rounded-lg border-2 border-gray-600 mb-2 shadow-md bg-gray-100 flex justify-center gap-2">

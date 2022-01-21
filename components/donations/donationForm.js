@@ -42,7 +42,7 @@ const DonationForm = () => {
                 <InternationalForm />
               )}
             </div>
-            <div className="px-2 md:px-4 my-8 md:my-0">
+            <div className="px-2 md:px-0 my-8 md:my-0">
               <h3 className="text-lg font-medium leading-6 text-gray-900">
                 Donation Information
               </h3>

@@ -1,10 +1,27 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import useCustomHttp from "../../hooks/custom-http";
 
 const MiniDonation = () => {
   const [showDropDown, setShowDropDown] = useState(false);
+  const [donations, setDonations] = useState([]);
   const [donationCategory, setDonationCategory] = useState("Recent");
+  const { isLoading, error, sendRequest } = useCustomHttp();
+
+  useEffect(() => {
+    const { id } = router.query;
+    const requestConfig = {
+      url: `http://localhost:8080/campaigns/${id}/donations?sortBy=${donationCategory}`,
+      method: "GET",
+    };
+
+    const getData = (data) => {
+      setDonations(data.data);
+    };
+
+    sendRequest(requestConfig, getData);
+  }, [donationCategory]);
 
   const router = useRouter();
 
@@ -16,7 +33,6 @@ const MiniDonation = () => {
     setShowDropDown(false);
     setDonationCategory(event.target.value);
   };
-
 
   const dropDown = (
     <div
@@ -47,6 +63,38 @@ const MiniDonation = () => {
       </div>
     </div>
   );
+
+  const capitalize = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  };
+
+  const formattedDonations = donations.map((donation) => (
+    <div key={donation.id}>
+      <li className="flex gap-4 py-2">
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          data-prefix="fas"
+          data-icon="user"
+          role="img"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 448 512"
+          width="20"
+          height="20"
+          className="opacity-50"
+        >
+          <path
+            fill="currentColor"
+            d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"
+          ></path>
+        </svg>
+        {`${capitalize(donation.first_name)} ${capitalize(
+          donation.last_name
+        )} donated Nu.${donation.amount}`}
+      </li>
+      <hr className="my-2" />
+    </div>
+  ));
 
   return (
     <div className="flex flex-col justify-between pl-4 py-4 pr-2 h-full shadow overflow-hidden sm:rounded-lg">
@@ -84,71 +132,7 @@ const MiniDonation = () => {
         </div>
 
         <hr />
-        <ul className="my-2 text-sm">
-          <li className="flex gap-4 py-2" key="1">
-            <svg
-              aria-hidden="true"
-              focusable="false"
-              data-prefix="fas"
-              data-icon="user"
-              role="img"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 448 512"
-              width="20"
-              height="20"
-              className="opacity-50"
-            >
-              <path
-                fill="currentColor"
-                d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"
-              ></path>
-            </svg>
-            Namgay Tenzin donated Nu.1000
-          </li>
-          <hr className="my-2" />
-          <li className="flex gap-4 py-2" key="2">
-            <svg
-              aria-hidden="true"
-              focusable="false"
-              data-prefix="fas"
-              data-icon="user"
-              role="img"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 448 512"
-              width="20"
-              height="20"
-              className="opacity-50"
-            >
-              <path
-                fill="currentColor"
-                d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"
-              ></path>
-            </svg>
-            Namgay donated Nu.1000
-          </li>
-          <hr className="my-2" />
-          <li className="flex gap-4 py-2" key={Math.floor(Math.random * 100)}>
-            <svg
-              aria-hidden="true"
-              focusable="false"
-              data-prefix="fas"
-              data-icon="user"
-              role="img"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 448 512"
-              width="20"
-              height="20"
-              className="opacity-50"
-            >
-              <path
-                fill="currentColor"
-                d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"
-              ></path>
-            </svg>
-            Namgay donated Nu.1000
-          </li>
-          <hr className="my-2" />
-        </ul>
+        <ul className="my-2 text-sm">{formattedDonations}</ul>
       </div>
       <div className="text-right">
         <Link href={`${router.asPath}/donations`}>

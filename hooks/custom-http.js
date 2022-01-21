@@ -4,19 +4,23 @@ const useCustomHttp = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
   const sendRequest = useCallback(async (requestConfig, applyData) => {
     setIsLoading(true);
     setError(null);
+    console.log({apiUrl, requestConfig})
 
     try {
-      const response = await fetch(requestConfig.url, {
-        method: requestConfig.method || "GET",
-        headers: requestConfig.headers || {},
-        body: requestConfig.body ? JSON.stringify(requestConfig.body) : null,
+      const response = await fetch(apiUrl + requestConfig.url, {
+        method: requestConfig.method,
+        headers: requestConfig.headers,
+        body: requestConfig.body
       });
 
       if (!response.ok) {
-        throw new Error("Request failed!");
+        const error = await response.json()
+        throw new Error(error.error);
       }
 
       const data = await response.json();

@@ -1,10 +1,64 @@
 import Link from "next/link";
+import { useEffect } from "react";
+import { useState } from "react/cjs/react.development";
 import CampaignHeader from "../../components/campaigns/campaignHeader";
 import MainCampaign from "../../components/campaigns/mainCampaign";
 import Pagination from "../../components/pagination";
 import Wrapper from "../../components/wrapper";
+import useCustomHttp from "../../hooks/custom-http";
 
 const Campaigns = () => {
+  const [campaigns, setCampaigns] = useState([]);
+  const { isLoading, error, sendRequest } = useCustomHttp();
+  const [filterStatus, setFilterStatus] = useState("active");
+  const [queryStatus, setQueryStatus] = useState("");
+  const [pageStatus, setPageStatus] = useState(1);
+
+  useEffect(() => {
+    const requestConfig = {
+      url: `/campaigns?status=${filterStatus}&query=${queryStatus}&page=${pageStatus}&pageSize=5`,
+      method: "GET",
+    };
+
+    const getData = (data) => {
+      setCampaigns(data.data);
+    };
+
+    sendRequest(requestConfig, getData);
+  }, [filterStatus, queryStatus, pageStatus]);
+
+  const filterHandler = (filter) => {
+    setFilterStatus(filter);
+  };
+
+  const queryHandler = (query) => {
+    setQueryStatus(query);
+  };
+
+  const pageHandler = (operation) => {
+    if (operation === "add") {
+      setPageStatus((prevStatus) => {
+        return prevStatus + 1;
+      });
+    } else {
+      if (pageStatus == 1) {
+        setPageStatus(1)
+      } else {
+        setPageStatus((prevStatus) => {
+          return prevStatus - 1;
+        });
+      }
+    }
+  };
+
+  const formattedCampaigns = campaigns.map((campaign) => (
+    <MainCampaign
+      bottomBorder="border-b-4"
+      campaign={campaign}
+      key={campaign.id}
+    />
+  ));
+
   return (
     <Wrapper>
       <div className="lg:px-40 md:px-12 py-6 lg:py-10 md:py-5">
@@ -52,16 +106,10 @@ const Campaigns = () => {
           </div>
         </div>
 
-        <div className="mt-2 md:mt-0 pb-2 lg:pb-4 md:pb-2 border-2 shadow overflow-hidden sm:rounded-lg">
-          <CampaignHeader />
-          <div className="">
-            <MainCampaign bottomBorder="border-b-4" />
-            <MainCampaign bottomBorder="border-b-4" />
-            <MainCampaign bottomBorder="border-b-4" />
-            <MainCampaign bottomBorder="border-b-4" />
-            <MainCampaign bottomBorder="border-b-4" />
-          </div>
-          <Pagination />
+        <div className="mt-2 md:mt-0 pb-2 lg:pb-2 md:pb-2 border-2 shadow overflow-hidden sm:rounded-lg">
+          <CampaignHeader onFilter={filterHandler} onQuery={queryHandler} />
+          <ul className="">{formattedCampaigns}</ul>
+          <Pagination onPageChange={pageHandler} />
         </div>
       </div>
     </Wrapper>

@@ -1,16 +1,18 @@
-import { useRef, useContext } from "react";
+import { useRef, useContext, useEffect } from "react";
 import Wrapper from "../../components/wrapper";
 import { useRouter } from "next/router";
 import ModalContext from "../../store/modal-context";
 import useCustomHttp from "../../hooks/custom-http";
 import Loader from "../../components/UI/loader";
 import { useState } from "react/cjs/react.development";
+import Modal from "../../components/UI/modal";
 
 const CreateCampaign = () => {
   const router = useRouter();
   const modCtx = useContext(ModalContext);
   const [image, setImage] = useState(null);
   const [imageSelected, setImageSelected] = useState(false);
+  const [showErrorModal, setShowErrorModal] = useState(false);
   const { isLoading, error, sendRequest } = useCustomHttp();
 
   const headerRef = useRef();
@@ -18,6 +20,7 @@ const CreateCampaign = () => {
   const categoryRef = useRef();
   const endDateRef = useRef();
   const descriptionRef = useRef();
+  const amountRef = useRef();
 
   const fileSelectionHandler = (event) => {
     setImage(event.target.files[0]);
@@ -29,31 +32,50 @@ const CreateCampaign = () => {
     const formData = new FormData();
 
     formData.append("header", headerRef.current.value);
-    formData.append("subHeader", subheaderRef.current.value);
+    formData.append("sub_header", subheaderRef.current.value);
     formData.append("category", categoryRef.current.value);
-    formData.append("endDate", endDateRef.current.value);
+    formData.append("end_date", endDateRef.current.value);
     formData.append("description", descriptionRef.current.value);
+    formData.append("target_amount", amountRef.current.value);
     formData.append("image", image);
 
-    console.log(formData);
-
     const requestConfig = {
-      url: "https://namgay-19-default-rtdb.firebaseio.com/campaigns.json",
+      url: "/campaigns",
       method: "POST",
       body: formData,
     };
 
     const getId = (data) => {
       modCtx.setShowModal();
-      router.push(`/campaigns/${data.name}`);
+      router.push(`/campaigns/${data.id}`);
     };
 
     sendRequest(requestConfig, getId);
   };
 
+  useEffect(() => {
+    if (error !== null) {
+      setShowErrorModal(true);
+      const modalTimer = setTimeout(() => {
+        setShowErrorModal(false);
+      }, 2000);
+
+      return () => {
+        clearTimeout(modalTimer);
+      };
+    }
+  }, [error]);
+
   return (
     <Wrapper>
       {isLoading && <Loader />}
+      {showErrorModal && (
+        <Modal
+          header="Request Failed!"
+          subHeader={error}
+          showErrorModal={true}
+        />
+      )}
       <div className="px-2 md:px-12 lg:px-40 md:py-4">
         <h1 className="text-3xl font-semibold mb-4 mt-4">Create a Campaign</h1>
         <form className="mb-8" onSubmit={campaignCreationHandler}>
@@ -92,6 +114,7 @@ const CreateCampaign = () => {
                     autoComplete="family-name"
                     ref={subheaderRef}
                     className="mt-1 px-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border border-gray-300 rounded-md"
+                    required
                   />
                 </div>
 
@@ -108,6 +131,7 @@ const CreateCampaign = () => {
                     autoComplete="bank"
                     ref={categoryRef}
                     className="mt-1 block w-full py-2 px-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    required
                   >
                     <option>Medical needs</option>
                   </select>
@@ -128,7 +152,27 @@ const CreateCampaign = () => {
                     ref={endDateRef}
                     className="px-2 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border border-gray-300 rounded-md py-2"
                     placeholder="Select date"
+                    required
                   />
+                </div>
+
+                <div className="col-span-6 sm:col-span-3">
+                  <label
+                    htmlFor="amount"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Target Amount
+                  </label>
+                  <input
+                    id="amount"
+                    type="number"
+                    name="amount"
+                    autoComplete="amount"
+                    placeholder="Nu. 100"
+                    ref={amountRef}
+                    className="mt-1 block w-full py-2 px-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    required
+                  ></input>
                 </div>
 
                 <div className="col-span-6 sm:col-span-4">
@@ -170,6 +214,7 @@ const CreateCampaign = () => {
                             type="file"
                             className="sr-only"
                             onChange={fileSelectionHandler}
+                            required
                           />
                         </label>
                         <p className="pl-1">or drag and drop</p>
@@ -195,12 +240,15 @@ const CreateCampaign = () => {
                       rows={3}
                       ref={descriptionRef}
                       className="h-48 px-2 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"
-                      defaultValue={""}
+                      defaultValue=" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultrices, tellus at tristique pretium, nulla justo consequat mauris, et volutpat neque massa non tortor. Sed convallis tempus nisl sit amet eleifend. In pretium massa id scelerisque pharetra. Morbi imperdiet congue velit, in consequat risus aliquam at. Aenean cursus, metus vitae ultrices tempor, massa urna interdum augue, vel ultricies nunc dolor vel ligula. Integer sollicitudin risus egestas libero viverra, in sodales diam fermentum. Curabitur sagittis dictum dui ac dictum. Suspendisse potenti. Proin sollicitudin ligula eu odio interdum volutpat. Aenean efficitur fringilla mauris, eget pharetra libero vehicula ac. Curabitur eu laoreet ipsum. Quisque at ipsum diam. Aliquam tempor tellus felis, a ultricies lectus interdum eu. Nunc nec orci auctor, hendrerit dui et, sollicitudin velit.
+
+                      Nunc hendrerit pretium facilisis. Nulla laoreet porttitor rutrum. Ut scelerisque arcu erat, eu consectetur diam bibendum eu. Integer rhoncus, augue in accumsan mollis, lacus libero vehicula urna, ut luctus diam dolor vitae erat. Donec dapibus nunc arcu, vel gravida sapien viverra at. Nulla iaculis orci erat, eget consequat nulla rutrum vitae. Donec non quam euismod, dictum augue eu, laoreet ligula. "
+                      required
                     />
                   </div>
                   <p className="mt-2 text-sm text-gray-500">
                     Brief description about your campaign. Maximum word limit is
-                    500.
+                    1000.
                   </p>
                 </div>
               </div>

@@ -1,7 +1,25 @@
+import { useState, useEffect } from "react";
 import CampaignButton from "./campaignButton";
 import CampaignCard from "./campaignCard";
+import useCustomHttp from "../../hooks/custom-http";
 
 const MiniCampaign = () => {
+  const [campaigns, setCampaigns] = useState([]);
+  const { isLoading, error, sendRequest } = useCustomHttp();
+
+  useEffect(() => {
+    const requestConfig = {
+      url: `/campaigns?perPage=3`,
+      method: "GET",
+    };
+
+    const getData = (data) => {
+      setCampaigns(data.data);
+    };
+
+    sendRequest(requestConfig, getData);
+  }, []);
+
   return (
     <div className="bg-secondary w-full pb-8 lg:pb-16 md:pb-12">
       <div className="px-2 lg:px-40 md:px-12">
@@ -40,15 +58,17 @@ const MiniCampaign = () => {
           where the goverment cant fund the medical expenditures. This is where
           we can run a crowdfunding campaign to help the people in need.
         </p>
-        <div className="md:flex md:justify-evenly md:gap-10 mt-4 lg:mt-10 md:mt-6">
-          <CampaignCard></CampaignCard>
-          <div className="hidden md:block">
-            <CampaignCard></CampaignCard>
+        {campaigns.length !== 0 && (
+          <div className="md:flex md:justify-evenly md:gap-10 mt-4 lg:mt-10 md:mt-6">
+            <CampaignCard campaign={campaigns[0]}></CampaignCard>
+            <div className="hidden md:block">
+              <CampaignCard campaign={campaigns[1]}></CampaignCard>
+            </div>
+            <div className="hidden lg:block">
+              <CampaignCard campaign={campaigns[2]}></CampaignCard>
+            </div>
           </div>
-          <div className="hidden lg:block">
-            <CampaignCard></CampaignCard>
-          </div>
-        </div>
+        )}
       </div>
     </div>
   );
