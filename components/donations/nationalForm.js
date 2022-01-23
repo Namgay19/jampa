@@ -44,7 +44,7 @@ const NationalForm = () => {
     };
 
     const requestConfig = {
-      url: `http://localhost:8080/campaigns/${id}/donate`,
+      url: `/campaigns/${id}/donate`,
       method: "POST",
       body: JSON.stringify(
         {

@@ -39,9 +39,12 @@ const CreateCampaign = () => {
     formData.append("target_amount", amountRef.current.value);
     formData.append("image", image);
 
+    const authorization = typeof window !== 'undefined' ? localStorage.getItem('jwtToken') : null
+    
     const requestConfig = {
       url: "/campaigns",
       method: "POST",
+      headers: { "Authorization": authorization},
       body: formData,
     };
 

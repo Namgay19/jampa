@@ -44,13 +44,13 @@ const Story = (props) => {
               ></path>
             </svg>
           </button>
-          <div className="flex justify-center lg:gap-5 lg:px-20 md:px-6 lg:mx-16 md:mx-4 lg:h-96 md:h-64 rounded-3xl">
+          <div className="grid grid-cols-6 lg:gap-5 lg:px-20 md:px-6 lg:mx-16 md:mx-4 lg:h-96 md:h-64 rounded-3xl">
             <img
               src={props.stories[showIndex].image}
               alt="images"
-              className="rounded-lg w-full"
+              className="rounded-lg w-full h-60 lg:h-96 col-span-3"
             />
-            <div className="px-2 rounded-3xl lg:text-base">
+            <div className="px-2 rounded-3xl lg:text-base col-span-3">
               <h1 className="lg:text-2xl md:text-xl font-bold text-gray-400 lg:mt-12 md:mt-4 mb-2">
                 Success Stories
               </h1>

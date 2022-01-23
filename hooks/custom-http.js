@@ -9,25 +9,29 @@ const useCustomHttp = () => {
   const sendRequest = useCallback(async (requestConfig, applyData) => {
     setIsLoading(true);
     setError(null);
-    console.log({apiUrl, requestConfig})
 
     try {
       const response = await fetch(apiUrl + requestConfig.url, {
         method: requestConfig.method,
         headers: requestConfig.headers,
-        body: requestConfig.body
+        body: requestConfig.body,
       });
 
       if (!response.ok) {
-        const error = await response.json()
+        const error = await response.json();
         throw new Error(error.error);
       }
 
       const data = await response.json();
-      setIsLoading(false)
-      applyData(data);
+      const authorization = response.headers.get("Authorization");
+      setIsLoading(false);
+      if (authorization !== null) {
+        applyData(data, authorization);
+      } else {
+        applyData(data);
+      }
     } catch (err) {
-      setIsLoading(false)
+      setIsLoading(false);
       setError(err.message || "Something went wrong!");
     }
   }, []);
