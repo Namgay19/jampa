@@ -12,7 +12,7 @@ const MiniDonation = () => {
   useEffect(() => {
     const { id } = router.query;
     const requestConfig = {
-      url: `http://localhost:8080/campaigns/${id}/donations?sortBy=${donationCategory}`,
+      url: `/campaigns/${id}/donations?sortBy=${donationCategory}`,
       method: "GET",
     };
 

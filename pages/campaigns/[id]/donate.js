@@ -5,12 +5,6 @@ import useCustomHttp from "../../../hooks/custom-http";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
-export async function getServerSideProps(context) {
-  return {
-      props: {},
-  };
-}
-
 const Donate = () => {
   const router = useRouter()
   const [campaign, setCampaign] = useState({});

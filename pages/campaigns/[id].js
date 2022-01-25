@@ -8,12 +8,6 @@ import Modal from "../../components/UI/modal";
 import { useRouter } from "next/router";
 import useCustomHttp from "../../hooks/custom-http"
 
-export async function getServerSideProps(context) {
-  return {
-      props: {},
-  };
-}
-
 const Campaign = () => {
   const router = useRouter();
   const modCtx = useContext(ModalContext);
