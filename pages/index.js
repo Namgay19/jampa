@@ -15,14 +15,14 @@ export default function Home() {
         "John was diagnosed with a certain disease, and needed financial assitance to undergo his treatment.",
     },
     {
-      image: "/success_2.png",
+      image: "/success_3.png",
       header: "Yup, this thing works and I need a certain string length",
       cite: "John Cena",
       sub_header:
       "John was diagnosed with a certain disease, and needed financial assitance to undergo his treatment.",
     },
     {
-      image: "/success_3.png",
+      image: "/success_2.png",
       header: "Man, if life was easy",
       cite: "John Cena",
       sub_header:
