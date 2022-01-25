@@ -13,9 +13,9 @@ const Donations = () => {
   const [donationCategory, setDonationCategory] = useState("Recent");
   const [page, setPage] = useState(1)
 
-  const { id } = router.query;
-
   useEffect(()=> {
+    const { id } = router.query;
+
     const requestCampaignConfig = {
       url: `/campaigns/${id}`,
       method: "GET",

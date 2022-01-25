@@ -10,9 +10,9 @@ const Donate = () => {
   const [campaign, setCampaign] = useState({});
   const { isLoading, error, sendRequest } = useCustomHttp();
 
-  const { id } = router.query;
-
   useEffect(()=>{
+    const { id } = router.query;
+    
     const requestCampaignConfig = {
       url: `/campaigns/${id}`,
       method: "GET",
