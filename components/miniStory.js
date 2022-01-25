@@ -34,8 +34,8 @@ const MiniStory = (props) => {
               role="img"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 320 512"
-              width="75"
-              height="75"
+              width="50"
+              height="50"
               className="opacity-20"
             >
               <path
@@ -50,14 +50,14 @@ const MiniStory = (props) => {
                 Success Stories
               </h1>
               <blockquote className="text-base leading-5 text-gray-500">
-                &quot{props.stories[showIndex].header}&quot
+                {`"${props.stories[showIndex].header}"`}
                 <cite> -{props.stories[showIndex].cite}</cite>
               </blockquote>
             </div>
             <img
               src={props.stories[showIndex].image}
               alt="images"
-              className="rounded-lg object-none w-48 h-48 md:h-full md:w-10/12 ml-3 md:ml-6"
+              className="rounded-lg w-48 h-48 md:h-full md:w-10/12 ml-6"
             />
             <p className="opacity-50 ml-3 mt-4 lg:mt-10 md:mt-6 text-sm text-left lg:text-base md:text-sm">
               {props.stories[showIndex].sub_header}
@@ -72,8 +72,8 @@ const MiniStory = (props) => {
               role="img"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 320 512"
-              width="75"
-              height="75"
+              width="50"
+              height="50"
               className="opacity-20"
             >
               <path

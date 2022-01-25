@@ -59,7 +59,7 @@ const MainCampaign = (props) => {
             </p>
           </div>
         </div>
-        <div className="hidden md:flex md:justify-start">
+        <div className="md:flex md:justify-start pl-28 md:pl-0">
           <CampaignButton message="Go to Campaign" id={props.campaign.id}></CampaignButton>
         </div>
       </div>
