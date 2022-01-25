@@ -4,7 +4,7 @@ import {
   useContext,
   useState,
   useEffect,
-} from "react/cjs/react.development";
+} from "react";
 import useCustomHttp from "../../hooks/custom-http";
 import Modal from "../../components/UI/modal";
 import Loader from "../../components/UI/loader";

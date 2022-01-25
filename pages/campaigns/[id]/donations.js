@@ -2,9 +2,8 @@ import DonationList from "../../../components/donations/donationList";
 import Wrapper from "../../../components/wrapper";
 import MainCampaign from "../../../components/campaigns/mainCampaign";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import useCustomHttp from "../../../hooks/custom-http";
-import { useState } from "react/cjs/react.development";
 
 export async function getServerSideProps(context) {
   return {

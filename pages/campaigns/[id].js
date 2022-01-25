@@ -3,9 +3,8 @@ import CampaignTop from "../../components/campaigns/campaignTop";
 import MiniDonation from "../../components/donations/miniDonation";
 import ApplicantDetails from "../../components/applicantDetails";
 import ModalContext from "../../store/modal-context";
-import { useContext, useState } from "react/cjs/react.development";
+import { useContext, useState, useEffect } from "react";
 import Modal from "../../components/UI/modal";
-import { useEffect } from "react";
 import { useRouter } from "next/router";
 import useCustomHttp from "../../hooks/custom-http"
 

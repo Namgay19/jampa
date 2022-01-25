@@ -46,7 +46,6 @@ const CampaignHeader = (props) => {
 
         <input
           placeholder="Search for campaigns"
-          className="outline-none truncate"
           type="text"
           className="bg-gray-300 w-full outline-none"
           onChange={queryHandler}

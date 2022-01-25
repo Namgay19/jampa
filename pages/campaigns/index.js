@@ -1,6 +1,5 @@
 import Link from "next/link";
-import { useEffect } from "react";
-import { useState } from "react/cjs/react.development";
+import { useEffect, useState } from "react";
 import CampaignHeader from "../../components/campaigns/campaignHeader";
 import MainCampaign from "../../components/campaigns/mainCampaign";
 import Pagination from "../../components/pagination";

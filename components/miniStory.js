@@ -50,7 +50,7 @@ const MiniStory = (props) => {
                 Success Stories
               </h1>
               <blockquote className="text-base leading-5 text-gray-500">
-                "{props.stories[showIndex].header}"
+                &quot{props.stories[showIndex].header}&quot
                 <cite> -{props.stories[showIndex].cite}</cite>
               </blockquote>
             </div>
