@@ -6,7 +6,7 @@ const CampaignCard = (props) => {
 
   let image = "/default.jpg"
   if (Object.keys(props.campaign).length !== 0) {
-    image = `http://${props.campaign.Image.image_url}`
+    image = `https://${props.campaign.Image.image_url}`
   } 
 
   return (

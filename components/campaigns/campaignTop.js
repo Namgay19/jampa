@@ -1,13 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Amount from "../amount";
-
-export async function getServerSideProps(context) {
-  return {
-      props: {},
-  };
-}
-
 const CampaignTop = (props) => {
   const router = useRouter();
   const difference = Math.abs(new Date(props.campaign.end_date) - Date.now());
@@ -15,7 +8,7 @@ const CampaignTop = (props) => {
 
   let image = "/default.jpg"
   if (Object.keys(props.campaign).length !== 0) {
-    image = `http://${props.campaign.Image.image_url}`
+    image = `https://${props.campaign.Image.image_url}`
   } 
 
   return (
